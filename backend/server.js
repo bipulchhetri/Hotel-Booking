@@ -19,6 +19,11 @@ const hotelRoutes = require("./routes/hotelRoutes");
 // Use Routes
 app.use("/api/admin", adminRoutes);
 app.use("/api/hotels", hotelRoutes);
+// after `app.use(express.json());`
+
+// serve uploaded images
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 const PORT = process.env.PORT || 5000;
 
